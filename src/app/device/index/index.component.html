@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Devices</h1>
+
+  <a href="#" routerLink="/device/create/" class="btn btn-success">Create New Device</a>
+  <br><br>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>MaxEnergyCons</th>
+      <th width="220px">Action</th>
+    </tr>
+    <tr *ngFor="let device of devices">
+      <td>{{device.id}}</td>
+      <td>{{device.description}}</td>
+      <td>{{device.address}}</td>
+      <td>{{device.maxEnergyConsumption}}</td>
+      <td>
+        <a href="#" [routerLink]="['/device/', device.id, 'view']" class="button-view">View</a>
+        <a href="#" [routerLink]="['/device/', device.id, 'update']" class="button-update">Update</a>
+        <a href="#" [routerLink]="['/device']" (click)="deleteDevice(device.id)" class="button-delete">Delete</a>
+      </td>
+    </tr>
+  </table>
+</div>

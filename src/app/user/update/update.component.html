@@ -1,0 +1,61 @@
+<div class="container">
+    <h1>Update User</h1>
+    <a href="#" routerLink="/user/index" class="btn btn-primary">Back</a>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+    
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input 
+                formControlName="name"
+                id="name" 
+                type="text" 
+                [(ngModel)]="user.name"
+                class="form-control">
+            <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+            </div>
+        </div>
+           
+        <div class="form-group">
+            <label for="role">Role</label>
+            <textarea 
+                formControlName="Role"
+                id="role" 
+                type="text" 
+                [(ngModel)]="user.role"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['role'].touched && f['role'].invalid" class="alert alert-danger">
+                <div *ngIf="f['role'].errors && f['role'].errors['required']">Role is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="role">Role</label>
+            <textarea 
+                formControlName="Role"
+                id="role" 
+                type="text" 
+                [(ngModel)]="user.role"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['role'].touched && f['role'].invalid" class="alert alert-danger">
+                <div *ngIf="f['role'].errors && f['role'].errors['required']">Role is required.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="devices">Devices</label>
+            <textarea 
+                formControlName="devices"
+                id="devices" 
+                type="text" 
+                [(ngModel)]="user.devices"
+                class="form-control">
+            </textarea>
+        </div>
+
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+    </form>
+</div>
